@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Task from "./Task";
-import { v4 as uuid } from "uuid";
-
-function TaskList({ tasks, catSelected, handleClick }) {
-  const TasksToDisplay = tasks.filter(task => { return catSelected === "All" ? true : catSelected === task.category })
-    .map(task => <Task key={uuid()} category={task.category} task={task.text} handleClick={handleClick} id={uuid()} />)
-  //console.log(TasksToDisplay)
+function TaskList({ tasks, handleClick }) {
+  //console.log(tasks)
   return (
     <div className="tasks">
-      {TasksToDisplay}
+      {tasks.map((task, index) => <Task key={index} category={task.category} text={task.text} handleClick={handleClick} />)}
     </div>
   );
 }

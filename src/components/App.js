@@ -18,13 +18,13 @@ function App() {
     setTaskData(taskData => taskData.filter(task => task.text === text ? false : true))
 
   }
-
+  const tasksToDisplay = taskData.filter(task => { return catSelected === "All" ? true : catSelected === task.category })
   return (
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter categories={CATEGORIES} catSelected={catSelected} setCatSelected={setCatSelected} />
       <NewTaskForm categories={CATEGORIES} onTaskFormSubmit={onTaskFormSubmit} />
-      <TaskList tasks={taskData} catSelected={catSelected} handleClick={handleClick} />
+      <TaskList tasks={tasksToDisplay} handleClick={handleClick} />
     </div>
   );
 }
