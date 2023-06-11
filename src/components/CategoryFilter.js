@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function CategoryFilter({ categories, catSelected, setCatSelected }) {
 
@@ -9,7 +9,7 @@ function CategoryFilter({ categories, catSelected, setCatSelected }) {
   return (
     <div className="categories">
       <h5>Category filters</h5>
-      {categories.map(category => <button key={category} className={catSelected === category ? "selected" : null} onClick={e => handleButtonClick(category)}>{category}</button>)}
+      {categories.map(category => <button key={category} className={catSelected === category ? "selected" : null} onClick={() => handleButtonClick(category)}>{category}</button>)}
     </div>
   );
 }

@@ -3,8 +3,8 @@ import CategoryFilter from "./CategoryFilter";
 import NewTaskForm from "./NewTaskForm";
 import TaskList from "./TaskList";
 import { CATEGORIES, TASKS } from "../data";
-console.log("Here's the data you're working with");
-console.log({ CATEGORIES, TASKS });
+// console.log("Here's the data you're working with");
+// console.log({ CATEGORIES, TASKS });
 
 function App() {
 
@@ -14,10 +14,7 @@ function App() {
     setTaskData([...taskData, newTask])
   }
 
-  // const [updatedTasks, setUpdatedTasks] = useState(tasks)
-  function handleClick(e, text) {
-    // setIsClicked(true)
-    //e.target.parentElement.remove()
+  function handleClick(text) {
     setTaskData(taskData => taskData.filter(task => task.text === text ? false : true))
 
   }
